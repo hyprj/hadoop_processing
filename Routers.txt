@@ -1,0 +1,326 @@
+R1_Zurkiewicz#show running-config
+Building configuration...
+
+Current configuration : 656 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1_Zurkiewicz
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet7/0
+ ip address 189.98.75.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial8/0
+ ip address 10.10.40.1 255.255.255.252
+ clock rate 1200
+!
+interface Serial9/0
+ ip address 10.10.10.1 255.255.255.252
+ clock rate 1200
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 189.98.0.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+R2_Zurkiewicz#show running-config
+Building configuration...
+
+Current configuration : 760 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R2_Zurkiewicz
+!
+!
+!
+!
+!
+ip dhcp pool pula_dhcp
+ network 192.168.3.0 255.255.255.0
+ default-router 192.168.3.1
+ dns-server 192.168.3.1
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet7/0
+ ip address 192.168.3.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial8/0
+ ip address 10.10.10.2 255.255.255.252
+!
+interface Serial9/0
+ ip address 10.10.20.1 255.255.255.252
+ clock rate 1200
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 192.168.3.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+no cdp run
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+R3_Zurkiewicz#show running-config
+Building configuration...
+
+Current configuration : 669 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R3_Zurkiewicz
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet7/0
+ ip address 192.168.1.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial8/0
+ ip address 10.10.40.2 255.255.255.252
+!
+interface Serial9/0
+ ip address 10.10.30.1 255.255.255.252
+ clock rate 1200
+!
+router rip
+ version 2
+ passive-interface Serial8/0
+ network 10.0.0.0
+ network 192.168.1.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
+R4_Zurkiewicz#show running-config
+Building configuration...
+
+Current configuration : 625 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R4_Zurkiewicz
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet7/0
+ ip address 202.123.78.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface Serial8/0
+ ip address 10.10.30.2 255.255.255.252
+!
+interface Serial9/0
+ ip address 10.10.20.2 255.255.255.252
+!
+router rip
+ version 2
+ network 10.0.0.0
+ network 202.123.78.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end

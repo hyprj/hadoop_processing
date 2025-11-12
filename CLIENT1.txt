@@ -1,0 +1,56 @@
+CLIENT1_Zurkiewicz#show running-config
+Building configuration...
+
+Current configuration : 1308 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname CLIENT1_Zurkiewicz
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport trunk allowed vlan 10,20,30,40,50,60
+ switchport mode trunk
+
+CLIENT1_Zurkiewicz#show vtp status
+VTP Version                     : 1
+Configuration Revision          : 0
+Maximum VLANs supported locally : 255
+Number of existing VLANs        : 11
+VTP Operating Mode              : Client
+VTP Domain Name                 : zurkiewicz.vtp
+VTP Pruning Mode                : Disabled
+VTP V2 Mode                     : Disabled
+VTP Traps Generation            : Disabled
+MD5 digest                      : 0x31 0x16 0xE5 0x82 0x9B 0xE4 0x16 0xC4 
+Configuration last modified by 0.0.0.0 at 3-1-93 00:00:00
+CLIENT1_Zurkiewicz#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/4, Fa0/5, Fa0/6, Fa0/7
+                                                Fa0/8, Fa0/9, Fa0/10, Fa0/11
+                                                Fa0/12, Fa0/13, Fa0/14, Fa0/15
+                                                Fa0/16, Fa0/17, Fa0/18, Fa0/19
+                                                Fa0/20, Fa0/21, Fa0/22, Fa0/23
+                                                Fa0/24, Gig0/1, Gig0/2
+10   siec_10                          active    
+20   siec_20                          active    
+30   siec_30                          active    
+40   siec_40                          active    
+50   siec_50                          active    
+60   siec_60                          active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active  
