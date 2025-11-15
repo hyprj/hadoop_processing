@@ -15,7 +15,7 @@ CREATE EXTERNAL TABLE visits_by_hospital (
     ROW FORMAT DELIMITED
         FIELDS TERMINATED BY '\t'
     STORED AS TEXTFILE
-    LOCATION '${hiveconf:input_dir3}';
+    LOCATION '${hivevar:input_dir3}';
 
 CREATE EXTERNAL TABLE hospitals (
                                     hospital_id STRING,
@@ -27,7 +27,7 @@ CREATE EXTERNAL TABLE hospitals (
     ROW FORMAT DELIMITED
         FIELDS TERMINATED BY ','
     STORED AS TEXTFILE
-    LOCATION '${hiveconf:input_dir4}';
+    LOCATION '${hivevar:input_dir4}';
 
 CREATE TABLE country_stats AS
 SELECT
@@ -49,7 +49,7 @@ SELECT
     RANK() OVER (PARTITION BY country ORDER BY total_patients DESC) AS rank_in_country
 FROM country_stats;
 
-INSERT OVERWRITE DIRECTORY '${hiveconf:output_dir6}'
+INSERT OVERWRITE DIRECTORY '${hivevar:output_dir6}'
     STORED AS TEXTFILE
 SELECT CONCAT(
                '{"country":"', country,
